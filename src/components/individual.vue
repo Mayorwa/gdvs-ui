@@ -61,6 +61,8 @@ const getIndividualClass = (individual: IndividualType) => {
     return `card-Node`
   } else if (individual === IndividualType.Individual) {
     return `card-root`
+  } else if (individual === IndividualType.Parent) {
+    return `card-parentNode`
   }
 }
 

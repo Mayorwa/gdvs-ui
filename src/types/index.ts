@@ -17,6 +17,7 @@ export interface IndividualInterface{
 
 export enum IndividualType {
     Individual = 'Individual',
+    Parent = 'Parent',
     Partner = 'Partner',
     ExPartner = 'ExPartner',
     Child = 'Child'
