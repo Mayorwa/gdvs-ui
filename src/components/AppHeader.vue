@@ -1,7 +1,7 @@
 <template>
   <div class="app-header">
     <div class="app-header_container container">
-      <h4 class="title">Lineage Visual</h4>
+      <h4 class="title">Lineage Visual: The Soprano's</h4>
     </div>
     <div class="app-header_nav">
       <ul class="container">

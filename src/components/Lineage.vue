@@ -1,20 +1,22 @@
 <template>
   <div class="family-tree_branch">
-    <div class="grid-inner" v-if="family.parents">
-      <div class="grid grid-parents">
-        <Individual v-for="(parent, index) in family.parents" :key="index" v-bind="{...parent, relation: getRelation(parent, 'parent')}"/>
+    <div class="container">
+      <div class="grid-inner" v-if="family.parents">
+        <div class="grid grid-parents">
+          <Individual v-for="(parent, index) in family.parents" :key="index" v-bind="{...parent, relation: getRelation(parent, 'parent')}"/>
+        </div>
       </div>
-    </div>
-    <div class="grid-inner">
-      <div class="grid grid-partners grid-root">
-        <Individual v-bind="{...family.root, relation: getRelation(family.root, 'root')}"/>
-        <Individual v-for="(partner, index) in family.partners" :key="index" v-bind="{...partner, relation: getRelation(partner, 'partner')}"/>
+      <div class="grid-inner">
+        <div class="grid grid-partners grid-root">
+          <Individual v-bind="{...family.root, relation: getRelation(family.root, 'root')}"/>
+          <Individual v-for="(partner, index) in family.partners" :key="index" v-bind="{...partner, relation: getRelation(partner, 'partner')}"/>
+        </div>
       </div>
-    </div>
-    <!--#noofgen loop-->
-    <div class="grid-inner" v-if="family.children">
-      <div class="grid grid-children">
-        <Individual v-for="(child, index) in family.children" :key="index" v-bind="{...child, relation: getRelation(child, 'child')}"/>
+      <!--#noofgen loop-->
+      <div class="grid-inner" v-if="family.children">
+        <div class="grid grid-children">
+          <Individual v-for="(child, index) in family.children" :key="index" v-bind="{...child, relation: getRelation(child, 'child')}"/>
+        </div>
       </div>
     </div>
   </div>
@@ -35,6 +37,8 @@ const props = defineProps({
 const lineage = useLineage()
 
 const family = lineage.lineage[props.lineageId]
+
+// functions
 
 const getRelation = (individual: any, relation: string) => {
   switch (relation) {

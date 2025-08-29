@@ -1,6 +1,6 @@
 <template>
-  <div class="family-tree" v-for="(_, index) in family" :key="index">
-    <Lineage :lineageId="index"/>
+  <div class="family-tree">
+    <Lineage v-for="(_, index) in family" :key="index" :lineageId="index"/>
   </div>
 
 </template>

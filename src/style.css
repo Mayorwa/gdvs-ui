@@ -265,8 +265,8 @@ img {
 }
 
 .card:after, .card:before, .grid:after, .grid:before {
-  background-color: rgba(15, 98, 254, 0.4);
-  /*background-color: rgba(0, 0, 0, 0.4);*/
+  /*background-color: rgba(15, 98, 254, 0.8);*/
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .grid.grid-partners:before {
@@ -375,7 +375,8 @@ img {
   padding: 5px 10px;
   border-radius: 3px;
   color: #FFF;
-  background-color: #000000;
+  /*background-color: rgba(15, 98, 254, 1);*/
+  background-color: rgba(0, 0, 0, 1);
 }
 .grid.grid-children{
   row-gap: 120px;
@@ -390,7 +391,12 @@ img {
 .grid-children .card-childNode:nth-child(3n+1):not(:last-child):before, .grid-children .card-childNode:nth-child(3n+2):not(:last-child):before{
   right: -40px;
 }
-.grid-children:before{
+
+.family-tree_branch:nth-child(even) {
+  background-color: #e7ecf0;
+}
+
+.grid.grid-children:before{
   display: block;
   content: '';
   position: absolute;
