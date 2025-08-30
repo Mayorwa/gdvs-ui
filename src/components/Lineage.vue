@@ -40,14 +40,6 @@ let family = computed(() => {
   return lineage.lineage[props.lineageId]
 })
 
-// watch(lineageRef, async (_,oldValue) => {
-//   if (oldValue === 'familyRefs') {return;}
-//   const lastFamily = familyRefs.value[familyRefs.value.length - 1];
-//   if (lastFamily) {
-//     await nextTick();
-//     lastFamily?
-//   }
-// }, {deep: true});
 // functions
 
 const getRelation = (individual: any, relation: string) => {
