@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import Individual from "./individual.vue";
 import { IndividualType } from "../types";
-import {type PropType} from "vue";
+import {type PropType, computed} from "vue";
 import {useLineage} from "@/store";
 
 const props = defineProps({
@@ -36,8 +36,18 @@ const props = defineProps({
 
 const lineage = useLineage()
 
-const family = lineage.lineage[props.lineageId]
+let family = computed(() => {
+  return lineage.lineage[props.lineageId]
+})
 
+// watch(lineageRef, async (_,oldValue) => {
+//   if (oldValue === 'familyRefs') {return;}
+//   const lastFamily = familyRefs.value[familyRefs.value.length - 1];
+//   if (lastFamily) {
+//     await nextTick();
+//     lastFamily?
+//   }
+// }, {deep: true});
 // functions
 
 const getRelation = (individual: any, relation: string) => {

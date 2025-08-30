@@ -19,7 +19,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { type PropType, ref, computed} from "vue";
+import {type PropType, ref, computed, getCurrentInstance, nextTick} from "vue";
 import { IndividualType } from "@/types";
 import Icon from '@/components/ui/Icon.vue';
 import Spinner from "@/components/ui/Spinner.vue";
@@ -55,16 +55,21 @@ const props = defineProps({
 
 // data
 const lineage = useLineage()
-const isLoading = ref(false);
+const isLoading = ref<boolean>(false);
+const instance: any = getCurrentInstance();
 
 // functions
 const handleIndividualLineage = async (familyStartedId: string) => {
   isLoading.value = true;
-  setTimeout(() => {
-    lineage.populateIndividualLineage(familyStartedId)
-    isLoading.value = false;
-  }, 2000)
+  let resIdx = lineage.populateIndividualLineage(familyStartedId);
+  if (resIdx){
+    await nextTick()
+    const family = instance?.parent?.parent?.refs?.familyRefs[resIdx];
+    family?.$el?.scrollIntoView({behavior: "smooth", block: "start"});
+  }
+  isLoading.value = false;
 }
+
 // computed
 const classes = computed(() => {
   // const style = this.handleSize()
@@ -76,7 +81,6 @@ const classes = computed(() => {
 const isChild = computed(() => {
   return props.individualType === IndividualType.Child;
 })
-
 
 const getIndividualClass = (individual: IndividualType) => {
   if (individual === IndividualType.Child) {

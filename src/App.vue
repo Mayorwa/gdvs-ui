@@ -10,5 +10,6 @@ import AppHeader from "./components/AppHeader.vue";
 <style lang="scss">
 .app-body {
   background-color: #f4f4f4;
+  padding-bottom: 4rem;
 }
 </style>

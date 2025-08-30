@@ -64,7 +64,7 @@ export const useLineage = defineStore('lineage', {
             ],
             children: [
                 {
-                    name: 'Rachael Allison',
+                    name: 'Rachael Geller',
                     individualType: IndividualType.Child,
                     gender: 'female',
                     familyStarted: '@F022@',
@@ -100,9 +100,24 @@ export const useLineage = defineStore('lineage', {
     }),
     actions: {
         populateIndividualLineage(FamilyStartedId: string) {
-            console.log("::::before::::", this.lineage)
-            this.lineage.push(sampleData[FamilyStartedId])
-            console.log("::::after::::", this.lineage)
+            const i = this.checkIfIndexIsOpen(FamilyStartedId)
+            if(i >= 0) {
+                return i;
+            }
+            const data = sampleData[FamilyStartedId]
+            const idx = this.getOpenedSiblingsIndex(data.root.familyComingFrom)
+
+            if (idx >= 0) {
+                this.lineage.splice(idx)
+            }
+            this.lineage.push(data);
+            return this.lineage.length - 1;
+        },
+        getOpenedSiblingsIndex(FamilyComingFromId: string) {
+            return this.lineage.findIndex(obj => obj.root.familyComingFrom === FamilyComingFromId);
+        },
+        checkIfIndexIsOpen(FamilyStartedId: string) {
+            return this.lineage.findIndex(obj => obj.root.familyStarted === FamilyStartedId);
         }
     }
 })
