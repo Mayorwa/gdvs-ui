@@ -1,46 +1,40 @@
 <template>
-  <div class="app-header">
+  <div class="app-header" id="app">
     <div class="app-header_container container">
-      <h4 class="title">Lineage Visual: The Soprano's</h4>
+      <h4 class="title">Lineage Visual</h4>
     </div>
     <div class="app-header_nav">
-      <ul class="container">
-        <li>
+      <div class="container">
+        <router-link
+            v-for="(item, index) in navItems"
+            :key="index"
+            class="item"
+            active-class="active"
+            :to="item.route"
+        >
           <Icon
-              name="history"
+              :name="item.icon"
               width="20px"
               height="20px"
           />
-          <a href="" class="link">
-            History
-          </a>
-        </li>
-        <li class="active">
-          <Icon
-              name="parent_node"
-              width="20px"
-              height="20px"
-          />
-          <a href="" class="link">
-            Tree
-          </a>
-        </li>
-        <li>
-          <Icon
-              name="timeline"
-              width="20px"
-              height="20px"
-          />
-          <a href="" class="link">
-            Timeline
-          </a>
-        </li>
-      </ul>
+          <span class="link">
+            {{item.label}}
+          </span>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
+import {ref} from "vue";
 import Icon from "@/components/ui/Icon.vue";
+
+const navItems = ref([
+  { route: '/bio', label: 'Bio', icon: 'history' },
+  { route: '/tree', label: 'Tree', icon: 'parent_node' },
+  { route: '/timeline', label: 'Timeline', icon: 'timeline' }
+])
+
 </script>
 <style lang="scss">
 .app-header {
@@ -55,17 +49,18 @@ import Icon from "@/components/ui/Icon.vue";
   }
   & &_nav{
     border-top: 1px solid #393939;
-    ul{
+    .container{
       padding: 0 20px;
-      li{
+      .item{
         cursor: pointer;
         padding: 10px 30px 10px 15px;
         color: #ffffff;
         display: inline-block;
+        transition: all .2s;
         .icon{
           margin-right: 5px;
         }
-        &.active{
+        &.active, &:hover{
           background: #393939;
           border-top: 3px solid #0f62fe;
         }

@@ -1,11 +1,28 @@
 <template>
-  <AppHeader/>
-  <div class="app-body">
+  <component :is="layoutComponent">
     <router-view />
-  </div>
+  </component>
 </template>
 <script setup lang="ts">
-import AppHeader from "./components/AppHeader.vue";
+import { computed } from "vue";
+import {useRoute} from "vue-router";
+import AppLayout from "@/components/layouts/AppLayout.vue";
+import EmptyLayout from "@/components/layouts/EmptyLayout.vue";
+
+const route = useRoute()
+
+const layoutComponent = computed(() => {
+  let currentLayout
+  const routeLayout = route.meta.layout?.toLowerCase()
+  switch (routeLayout) {
+    case 'app':
+      currentLayout = AppLayout
+      break
+    default:
+      currentLayout = EmptyLayout
+  }
+  return currentLayout
+})
 </script>
 <style lang="scss">
 .app-body {
