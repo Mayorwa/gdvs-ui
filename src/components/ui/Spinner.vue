@@ -26,12 +26,12 @@
 }
 
 .half-circle-spinner .circle.circle-1 {
-  border-top-color: rgba(15, 98, 254, 0.8);
+  border-top-color: var(--bg-primary);
   animation: half-circle-spinner-animation 1s infinite;
 }
 
 .half-circle-spinner .circle.circle-2 {
-  border-bottom-color: rgba(15, 98, 254, 0.8);
+  border-bottom-color: var(--bg-primary);
   animation: half-circle-spinner-animation 1s infinite alternate;
 }
 

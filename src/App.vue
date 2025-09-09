@@ -26,7 +26,7 @@ const layoutComponent = computed(() => {
 </script>
 <style lang="scss">
 .app-body {
-  background-color: #f4f4f4;
+  background-color: #fdfbee;
   padding-bottom: 4rem;
 }
 </style>

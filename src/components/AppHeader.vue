@@ -1,7 +1,7 @@
 <template>
   <div class="app-header" id="app">
     <div class="app-header_container container">
-      <h4 class="title">Lineage Visual</h4>
+      <h4 class="title">InheritsGraph: <span>The Corleone's</span></h4>
     </div>
     <div class="app-header_nav">
       <div class="container">
@@ -62,7 +62,7 @@ const navItems = ref([
         }
         &.active, &:hover{
           background: #393939;
-          border-top: 3px solid #0f62fe;
+          border-top: 3px solid var(--bg-primary);
         }
         .link{
           color: #ffffff;
