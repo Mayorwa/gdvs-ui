@@ -1,24 +1,28 @@
 <template>
   <div class="app-header" id="app">
     <div class="app-header_container container">
-      <h4 class="title">InheritsGraph: <span>The Corleone's</span></h4>
+      <h4 class="title">
+        InheritsGraph
+        <span v-if="familyName" class="family-name"
+          ><Icon name="cancel" />\ {{ formatFamilyName }}</span
+        >
+        <Button>
+          <span class="">Upload Lineage</span>
+        </Button>
+      </h4>
     </div>
     <div class="app-header_nav">
       <div class="container">
         <router-link
-            v-for="(item, index) in navItems"
-            :key="index"
-            class="item"
-            active-class="active"
-            :to="item.route"
+          v-for="(item, index) in navItems"
+          :key="index"
+          class="item"
+          active-class="active"
+          :to="item.route"
         >
-          <Icon
-              :name="item.icon"
-              width="20px"
-              height="20px"
-          />
+          <Icon :name="item.icon" width="20px" height="20px" />
           <span class="link">
-            {{item.label}}
+            {{ item.label }}
           </span>
         </router-link>
       </div>
@@ -26,45 +30,74 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {ref} from "vue";
+import { computed, ref } from "vue";
 import Icon from "@/components/ui/Icon.vue";
+import Button from "./ui/Button.vue";
 
 const navItems = ref([
-  { route: '/bio', label: 'Bio', icon: 'history' },
-  { route: '/tree', label: 'Tree', icon: 'parent_node' },
-  { route: '/timeline', label: 'Timeline', icon: 'timeline' }
-])
+  { route: "/bio", label: "Bio", icon: "history" },
+  { route: "/tree", label: "Tree", icon: "parent_node" },
+  { route: "/timeline", label: "Timeline", icon: "timeline" },
+]);
 
+const familyName = ref<string>("");
+
+const formatFamilyName = computed(() => {
+  return `The ${familyName.value}'s`;
+});
 </script>
 <style lang="scss">
 .app-header {
   padding: 100px 0 0;
   background-color: #000;
   color: #fff;
-  & &_container{
+  & &_container {
     padding: 40px 30px;
-    .title{
+    .title {
       font-size: 4rem;
+      display: flex;
+      align-items: center;
+      .button{
+        margin-left: 4rem;
+      }
+      .family-name {
+        position: relative;
+        cursor: pointer;
+        color: var(--bg-secondary);
+        font-style: italic;
+
+        &:hover .icon {
+          display: block;
+        }
+
+        .icon {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 50%;
+        }
+      }
     }
   }
-  & &_nav{
+  & &_nav {
     border-top: 1px solid #393939;
-    .container{
+    .container {
       padding: 0 20px;
-      .item{
+      .item {
         cursor: pointer;
         padding: 10px 30px 10px 15px;
         color: #ffffff;
         display: inline-block;
-        transition: all .2s;
-        .icon{
+        transition: all 0.2s;
+        .icon {
           margin-right: 5px;
         }
-        &.active, &:hover{
+        &.active,
+        &:hover {
           background: #393939;
           border-top: 3px solid var(--bg-primary);
         }
-        .link{
+        .link {
           color: #ffffff;
         }
       }
