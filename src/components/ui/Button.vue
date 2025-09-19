@@ -51,8 +51,8 @@ const props = defineProps({
 const classes = computed(() => {
     const size = props.size ? `btn-${props.size}` : ''
     const variant = props.variant ? `button--${props.variant}` : ''
-    const disabled = props.disabled ? 'btn-disabled' : ''
-    const loading = props.loading ? 'btn-loading' : ''
+    const disabled = props.disabled ? 'btn-disabled': ''
+    const loading = props.loading ? 'btn-loading': ''
 
     return `${size} ${variant} ${disabled} ${loading} ${props.btnClass}`
 })
