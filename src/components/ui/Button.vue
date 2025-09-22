@@ -3,7 +3,7 @@
       :name="name"
       class="button"
       :class="[classes]"
-      :disabled="disabled || loading || inactive"
+      :disabled="disabled || loading"
   >
     <span v-if="loading">
       <Spinner/>

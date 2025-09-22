@@ -1,8 +1,9 @@
 :root {
-  --bg-primary: #355353;
+  --bg-primary: #17111b;
   /*--bg-primary: #355353;*/
   --bg-secondary: #D0DECC;
   --bg-white: #FFFFFF;
+  --bg-secondary-1: #f8f1f2;
 }
 
 html,
@@ -272,7 +273,7 @@ img {
 
 .card:after, .card:before, .grid:after, .grid:before {
   /*background-color: rgba(15, 98, 254, 0.8);*/
-  background-color: #597d4f;
+  background-color: var(--bg-primary);
 }
 
 .grid.grid-partners:before {

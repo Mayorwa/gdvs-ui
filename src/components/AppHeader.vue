@@ -3,12 +3,7 @@
     <div class="app-header_container container">
       <h4 class="title">
         InheritsGraph
-        <span v-if="familyName" class="family-name"
-          ><Icon name="cancel" />\ {{ formatFamilyName }}</span
-        >
-        <Button>
-          <span class="">Upload Lineage</span>
-        </Button>
+        <span v-if="familyName" class="family-name"><Icon name="cancel" />\ {{ formatFamilyName }}</span>
       </h4>
     </div>
     <div class="app-header_nav">
@@ -49,7 +44,7 @@ const formatFamilyName = computed(() => {
 <style lang="scss">
 .app-header {
   padding: 100px 0 0;
-  background-color: #000;
+  background-color: var(--bg-primary);
   color: #fff;
   & &_container {
     padding: 40px 30px;
@@ -95,7 +90,7 @@ const formatFamilyName = computed(() => {
         &.active,
         &:hover {
           background: #393939;
-          border-top: 3px solid var(--bg-primary);
+          border-top: 3px solid var(--bg-white);
         }
         .link {
           color: #ffffff;
