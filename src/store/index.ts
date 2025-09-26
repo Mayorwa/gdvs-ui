@@ -23,7 +23,7 @@ export const useLineage = defineStore('lineage', {
     state: () => ({
         lineage: [{
             root: {
-                name: 'Peter Allison',
+                name: 'Don Vito Corleone',
                 individualType: IndividualType.Individual,
                 gender: 'male',
                 familyStarted: '@F011@',
@@ -33,7 +33,7 @@ export const useLineage = defineStore('lineage', {
             },
             partners: [
                 {
-                    name: 'Monica Allison',
+                    name: 'Carmella Corleone',
                     individualType: IndividualType.Partner,
                     gender: 'female',
                     familyStarted: '@F011@',
@@ -44,7 +44,7 @@ export const useLineage = defineStore('lineage', {
             ],
             parents: [
                 {
-                    name: 'David Allison',
+                    name: 'Antonia Andolini',
                     individualType: IndividualType.Parent,
                     gender: 'male',
                     familyStarted: '@F001@',
@@ -53,7 +53,7 @@ export const useLineage = defineStore('lineage', {
                     deathdate: '1973',
                 },
                 {
-                    name: 'Sandra Park-Allison',
+                    name: 'Signora Andolini',
                     individualType: IndividualType.Parent,
                     gender: 'female',
                     familyStarted: '@F001@',
@@ -64,7 +64,7 @@ export const useLineage = defineStore('lineage', {
             ],
             children: [
                 {
-                    name: 'Rachael Geller',
+                    name: 'Connie Corleone',
                     individualType: IndividualType.Child,
                     gender: 'female',
                     familyStarted: '@F022@',
@@ -73,28 +73,30 @@ export const useLineage = defineStore('lineage', {
                     deathdate: '2013',
                 },
                 {
-                    name: 'Jennifer Allison',
+                    name: 'Sonny Corleone',
                     individualType: IndividualType.Child,
-                    gender: 'female',
+                    gender: 'male',
                     familyStarted: '@F023@',
                     familyComingFrom: '@F011@',
                     birthdate: '1945',
                     deathdate: '2014',
                 },
                 {
-                    name: 'Peter II Allison',
+                    name: 'Micheal Corleone',
                     individualType: IndividualType.Child,
                     gender: 'male',
                     familyComingFrom: '@F011@',
                     familyStarted: '@F024@',
                     birthdate: '1965',
-                }/*,
+                },
                 {
-                    name: 'David II Allison',
+                    name: 'Fredo Corleone',
                     individualType: IndividualType.Child,
                     gender: 'male',
+                    familyComingFrom: '@F011@',
+                    familyStarted: '@F025@',
                     birthdate: '1965',
-                }*/
+                }
             ],
         }] as LineageInterface[]
     }),

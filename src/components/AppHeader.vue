@@ -2,7 +2,7 @@
   <div class="app-header" id="app">
     <div class="app-header_container container">
       <h4 class="title">
-        InheritsGraph
+        InhGrp
         <span v-if="familyName" class="family-name"><Icon name="cancel" />\ {{ formatFamilyName }}</span>
       </h4>
     </div>
@@ -35,7 +35,7 @@ const navItems = ref([
   { route: "/timeline", label: "Timeline", icon: "timeline" },
 ]);
 
-const familyName = ref<string>("");
+const familyName = ref<string>("Corleone");
 
 const formatFamilyName = computed(() => {
   return `The ${familyName.value}'s`;

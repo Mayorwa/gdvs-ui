@@ -19,7 +19,7 @@ export const families: FamilyInterface[] = [{
 export const sampleData = {
     "@F024@": {
         root: {
-            name: 'Peter II Allison',
+            name: 'Micheal Corleone',
             individualType: IndividualType.Individual,
             gender: 'male',
             familyComingFrom: '@F011@',
@@ -28,12 +28,19 @@ export const sampleData = {
         },
         partners: [
             {
-                name: 'Monica Bing-Allison',
+                name: 'Kay Corleone',
                 individualType: IndividualType.Partner,
                 gender: 'female',
                 birthdate: '1970',
                 familyComingFrom: '@F078@',
                 familyStarted: '@F024@',
+            },
+            {
+                name: 'Apollonia Corleone',
+                individualType: IndividualType.ExPartner,
+                gender: 'female',
+                birthdate: '1970',
+                familyStarted: '@F049@',
             },
         ],
         children: [
